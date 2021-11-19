@@ -1,0 +1,135 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #238af8 !important;
+}
+.user_card {
+  width: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.form_container {
+  margin-top: 20px;
+}
+
+#form-title {
+  color: #f82323;
+}
+
+.login_btn {
+  width: 100%;
+  background: #fff !important;
+  color: #f82323 !important;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #fff !important;
+  color: #f82323 !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+#messages {
+  background-color: #fff;
+  color: #f82323;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.hello-msg {
+  font-size: 18px;
+  color: white;
+  margin-right: 20px;
+}
+
+.card-title {
+  color: white;
+}
+
+.card1-header {
+  padding: 1em;
+  margin: 0;
+  background-color: rgb(201, 10, 10);
+}
+
+.card1-body {
+  background-color: #f30202;
+  padding: 1em;
+  margin: 0;
+}
+
+.list_of_products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.item_card {
+  background-color: #e24e23;
+  padding: 15px;
+  margin: 40px;
+  width: 400px;
+  color: white;
+}
+
+.product_name1 {
+  text-align: center;
+}
+
+.product_price1 {
+  float: left;
+}
+
+.product_category1 {
+  float: right;
+}
+
+.product_description1 {
+  text-align: center;
+}
+
+.place_order_btn {
+  padding: 5px;
+  background-color: #f6880b;
+  color: white;
+  display: inline-block;
+  width: 370px;
+  text-align: center;
+}
+
+.place_order_btn:hover {
+  color: #f6880b;
+  background-color: white;
+  text-decoration: none;
+}
+
+.product_image1 {
+  width: 75px;
+  height: 75px;
+}

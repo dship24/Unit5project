@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Product</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+  <style>
+  .product_image {
+    height: 100px;
+    width: 100px;
+    margin: 0 0 20px 150px;
+  }
+  </style>
+    <a class="btn btn-secondary btn-sm btn-block" href="{% url "admin" %}">Go Back</a>
+    <div class="container" style="margin-top: 300px;">
+      <div class="d-flex justify-content-center">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="user_card" style="margin-right: 150px; height:465px">
+              <div class="d-flex justify-content-center">
+                <h3 id='form-title' style="padding-bottom: 30px;">CURRENT INFO</h3>
+              </div>
+              <div class="form_container">
+                <p style="padding-left: 20px">Name: {{product.name}}</p>
+                <hr>
+                <p style="padding-left: 20px;">Price: ${{product.price|floatformat:2}}</p>
+                <hr>
+                <p style="padding-left: 20px;">Category: {{product.category}}</p>
+                <hr>
+                <p style="padding-left: 20px;">Description: {{product.description}}</p>
+                <p style="padding-left: 20px;">Image:</p>{% if prodcut.img_link != "" %}<img class="product_image" src="{{product.img_link}}" />{% else %}<img class="product_image" src="https://www.theseasonedhome.com/content/images/thumbs/default-image_450.png">{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="user_card">
+              <div class="d-flex justify-content-center">
+                <h3 id="form-title">UPDATE PRODUCT</h3>
+              </div>
+              <div class="d-flex justify-content-center form_container">
+                <form method="POST" action="">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <input
+                    class="btn1 login_btn"
+                    type="submit"
+                    value="Update Product"
+                  />
+                </form>
+              </div>
+            {{form.errors}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

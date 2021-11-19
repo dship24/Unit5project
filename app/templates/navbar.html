@@ -1,0 +1,30 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav"></ul>
+    {% if request.user.is_staff != True %}
+    <span
+      ><a class="hello-msg" style="color: white" href="{% url 'user' %}"
+        >Home</a
+      ></span
+    >
+    <span
+      ><a
+        class="hello-msg"
+        style="color: white"
+        href="{% url 'user orders' request.user %}"
+        >Orders</a
+      ></span
+    >
+    <h3 class="main_title" style="color: white; margin-left: 650px">
+      Welcome to Ship-a-ton!
+    </h3>
+    {% else %}
+    <h3 class="main_title" style="color: white; margin-left: 750px">
+      Welcome to Ship-a-ton!
+    </h3>
+    {% endif %}
+  </div>
+  <span class="hello-msg">Hello, {{request.user}}</span>
+  <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+</nav>

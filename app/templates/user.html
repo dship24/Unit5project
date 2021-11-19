@@ -1,0 +1,42 @@
+{% extends 'main.html' %} {% block content %}
+<style>
+  .order_success_msg {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .product_image1 {
+    padding: 25px;
+    width: 375px;
+    height: 375px;
+  }
+</style>
+<body>
+  {% for message in messages %}
+  <p class="order_success_msg">{{message}}</p>
+  {% endfor %}
+  <ul class="list_of_products">
+    {% for product in products %}
+    <div class="item_card">
+      {% if product.img_link != "" %}
+      <img class="product_image1" src="{{product.img_link}}" />
+      {% else %}
+      <img
+        class="product_image1"
+        src="https://www.theseasonedhome.com/content/images/thumbs/default-image_450.png"
+      />
+      {% endif %}
+      <h2 class="product_name1">{{product.name}}</h2>
+      <p class="product_price1">Price: ${{product.price|floatformat:2}}</p>
+      <p class="product_category1">Category: {{product.category}}</p>
+      <br />
+      <hr />
+      <p class="product_description1">Description: {{product.description}}</p>
+      <a class="place_order_btn" href="{% url 'order item' product.name %}"
+        >Place Order</a
+      >
+    </div>
+    {% endfor %}
+  </ul>
+</body>
+{% endblock content %}

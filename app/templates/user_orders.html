@@ -1,0 +1,82 @@
+{% extends 'main.html' %} {% block content %}
+<style>
+  .table_header {
+    font-size: 30px;
+  }
+
+  .table_data {
+    font-size: 20px;
+  }
+
+  .deletebtn {
+    background-color: #f30202;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    position: relative;
+  }
+
+  .deletebtn:hover {
+    background-color: rgb(201, 10, 10);
+    text-decoration: none;
+    color: white;
+  }
+</style>
+<div class="row">
+  <div class="col">
+    <div class="col-md">
+      <div class="card text-center text-white mb-3" id="total-orders">
+        <div class="card1-header">
+          <h5 class="card-title">Total Orders</h5>
+        </div>
+        <div class="card1-body">
+          <h3 class="card-title">{{total_orders}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="col-md">
+      <div class="card text-center text-white mb-3" id="total-customers">
+        <div class="card1-header">
+          <h5 class="card-title">Total Delivered</h5>
+        </div>
+        <div class="card1-body">
+          <h3 class="card-title">{{delivered}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <table class="table table-lg">
+    <tr>
+      <th></th>
+      <th class="table_header">Item</th>
+      <th></th>
+      <th class="table_header">Price</th>
+      <th></th>
+      <th class="table_header">Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for order in orders%}
+    <tr>
+      <td></td>
+      <td class="table_data">{{order.item}}</td>
+      <td></td>
+      <td class="table_data">${{order.item.price|floatformat:2}}</td>
+      <td></td>
+      <td class="table_data">{{order.status}}</td>
+      <td></td>
+      <td>
+        <a class="deletebtn" href="{% url 'delete' order.id %}">Delete</a>
+      </td>
+    </tr>
+    {%endfor %} {% endblock content%}
+  </table>
+</div>

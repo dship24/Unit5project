@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRM</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    <script type="text/javascript">
+      function showMessage() {
+        alert("You are not signed in. Please do so to place an order.");
+      }
+    </script>
+  </head>
+  <body>
+    <style>
+      .product_image1 {
+        padding: 25px;
+        width: 375px;
+        height: 375px;
+      }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav"></ul>
+        <h3 class="main_title" style="color: white; margin-left: 750px">
+          Welcome to Ship-a-ton!
+        </h3>
+      </div>
+      <span><a class="hello-msg" href="{% url 'login' %}">Login</a></span>
+      <span><a class="hello-msg" href="{% url 'register' %}">Sign Up</a></span>
+    </nav>
+    <ul class="list_of_products">
+      {% for product in products %}
+      <div class="item_card">
+        {% if product.img_link != "" %}
+        <img class="product_image1" src="{{product.img_link}}" />
+        {% else %}
+        <img
+          class="product_image1"
+          src="https://www.theseasonedhome.com/content/images/thumbs/default-image_450.png"
+        />
+        {% endif %}
+        <h2 class="product_name1">{{product.name}}</h2>
+        <p class="product_price1">Price: ${{product.price|floatformat:2}}</p>
+        <p class="product_category1">Category: {{product.category}}</p>
+        <br />
+        <hr />
+        <p class="product_description1">Description: {{product.description}}</p>
+        <input
+          type="button"
+          class="place_order_btn"
+          value="Place Order"
+          onClick="showMessage()"
+        />
+      </div>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

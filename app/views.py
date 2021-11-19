@@ -131,7 +131,7 @@ def delete_order(request, id):
 def home(request):
     products = Item.objects.all()
     context = {'products': products}
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
 
 
 @login_required(login_url='login')
